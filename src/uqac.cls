@@ -393,8 +393,33 @@
                                      {2ex \@plus .2ex}%
                                      {\normalsize\bfseries\MakeUppercase}}
 
+% Flag set by \chapter — cleared once \section*{Introduction} is seen
+\newif\if@chapterintro
+\@chapterintrofalse
+\let\oldchapter\chapter
+\renewcommand{\chapter}{\global\@chapterintrotrue\oldchapter}
+
 \let\oldsection\section
-\renewcommand{\section}{\leftskip=0cm \oldsection}
+% \section*{Introduction} at chapter start auto-indents its first paragraph
+\renewcommand*{\section}{%
+  \leftskip=0cm
+  \@ifstar{\uqac@sectionstar}{\uqac@sectionnostar}%
+}
+\newcommand{\uqac@sectionstar}[1]{%
+  \oldsection*{#1}%
+  \if@chapterintro
+    \global\@chapterintrofalse
+    \def\uqac@secarg{#1}%
+    \ifx\uqac@secarg\uqac@introname
+      \everypar{\hspace*{1.5em}\everypar{}}%
+    \fi
+  \fi
+}
+\newcommand{\uqac@sectionnostar}{%
+  \global\@chapterintrofalse
+  \oldsection
+}
+\def\uqac@introname{Introduction}
 
 \let\oldsubsection\subsection
 \renewcommand{\subsection}{\leftskip=1cm \oldsubsection}
@@ -487,17 +512,17 @@
 \AfterEndEnvironment{equation}{\vspace{-0.5cm}}
 
 %% Espacements avant et après les figures
-\BeforeBeginEnvironment{figure}{\vspace{1cm}}
+\BeforeBeginEnvironment{figure}{\vspace{1cm}\setlength{\leftskip}{0pt}}
 \AfterEndEnvironment{figure}{\vspace{-0.5cm}}
-\BeforeBeginEnvironment{figure*}{\vspace{1cm}}
+\BeforeBeginEnvironment{figure*}{\vspace{1cm}\setlength{\leftskip}{0pt}}
 \AfterEndEnvironment{figure*}{\vspace{-0.5cm}}
 
 %% Espacements avant et après les tableaux
-\BeforeBeginEnvironment{table}{\vspace{0.5cm}}
+\BeforeBeginEnvironment{table}{\vspace{0.5cm}\setlength{\leftskip}{0pt}}
 \AfterEndEnvironment{table}{\vspace{-0.5cm}}
 
 %% Espacements avant et après les algorithmes
-\BeforeBeginEnvironment{algorithm}{\vspace{1cm}}
+\BeforeBeginEnvironment{algorithm}{\vspace{1cm}\setlength{\leftskip}{0pt}}
 \AfterEndEnvironment{algorithm}{\vspace{1cm}}
 
 \SetAlCapSkip{12pt}
