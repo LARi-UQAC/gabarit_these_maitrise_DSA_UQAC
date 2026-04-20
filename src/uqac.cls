@@ -996,6 +996,10 @@
 \programme{}
 \degreeyear{\the\year}
 
+% Jury members — use \ajoutermembre{Nom, Institution, Rôle} in main.tex
+\def\@jurymembres{}
+\def\ajoutermembre#1{\g@addto@macro\@jurymembres{\text{#1}\vfill}}
+
 \ifthenelse{\equal{\@uqacthese}{true}}{%
 	\ifthenelse{\equal{\@uqacfrench}{true}}{%
   		\gdef\thesetype{\textbf{{M\`emoire}}}
@@ -1107,11 +1111,7 @@
         \text{ }\vfill
         \text{ }\vfill
         \textbf{Jury:}\vfill
-        \text{Nom1, Institution1, Président du jury}\vfill
-        \text{Nom2, Institution2, Membre externe}\vfill
-        \text{Nom3, Institution3, Membre interne}\vfill
-        \text{Nom4, Institution4, Directeur de recherche}\vfill
-        \text{Nom5, Institution5, Co-directeur de recherche}\vfill
+        \@jurymembres
         \text{ }\vfill
         \text{ }\vfill
         \end{spacing}
