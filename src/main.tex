@@ -1,0 +1,212 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Classes disponibles :
+%%	- times : utilisation de la police Times par défaut.
+%%	- these, sujthese, projthese, memoire, essai, rapport : pour
+%%		générer la page de garde en fonction du type document.
+%%	- french, english : selon la langue dans laquelle doit
+%%		être rédigé le document.
+%%  - ieee, apa : style des références bibliographiques
+%%  - twoside : alternance des marges pour impression recto/verso
+%%    vous devez décommenter la ligne 22 si vous utilisez cette classe
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,times,these,french,apa]{uqac}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Décommenter la ligne suivante avec l'utilisation de
+%% la classe "twoside"
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \raggedbottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Préciser l'emplacement du fichier
+%% contenant les acronymes.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acrolistpath{assets/acro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Toutes les images utilisées doivent se trouver dans
+%% le répertoire "assets/figure".
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{assets/figures/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Packages utilisateurs ci-dessous:
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{soul, color, xcolor, soulutf8}
+
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage{chemfig}
+\usepackage{chemnum}
+\usepackage{acronym}  
+\usepackage[europeanresistors,americaninductors]{circuitikz}
+\usepackage{tikz-feynman}
+\usepackage{hyperref}
+\usepackage{algorithmic}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\graphicspath{{assets/figures/}}
+
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=[rgb]{0,0.501,0.674},
+  breaklinks=true,
+  citecolor=[rgb]{0,0.501,0.674},
+  bookmarks=true
+}
+\SetKwInput{KwEntree}{Entrées}
+\SetKwInput{KwSortie}{Sortie}
+% Algorithm packages
+%\usepackage{algorithm}  % or \usepackage{algorithm2e} depending on what you need
+%\usepackage{algorithmic}  % if you want to write pseudo-code
+%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Césures manuelles
+%%
+%%%%%%%%%%%%%%%%%%%%%
+% \hyphenation{con-nection con-nue con-cep-tion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Gestion des lignes orphelines
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\widowpenalty10000
+\clubpenalty10000
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Titre, auteur et programme
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Un titre qui représente la contibution principale du mémoire}
+\author{Nom de l'étudiant.e}
+\programme{ingénierie}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% S’il y a lieu, indiquer le profil
+%% ou la concentration du programme
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\concentration{profil recherche}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Par défaut l'année courante est utilisée.
+%% Pour spécifier une autre année :
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\degreeyear{2018}
+% Ajout d'une page vide avec les mêmes dimensions que les autres pages
+\newpage
+\null
+\thispagestyle{empty} % Pas de numéro de page sur la page vide
+\newpage
+
+% Modifier les marges spécifiquement pour la page de garde
+\newgeometry{a4paper,left=35mm, right=25mm, top=25mm, bottom=25mm} % Par exemple, des marges réduites
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Page préliminaires
+%%
+%%%%%%%%%%%%%%%%%%%%%
+\begingroup
+\singlespacing
+\opening
+%\pagestyle{empty}
+
+\include{content/abstract}
+\include{content/resume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Si vous écrivez un document en anglais,
+%% il sera nécessaire de fournir un résumé en Français :
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ajouter un espace avant l'entrée "Table des Matières" dans la table des matières
+\addtocontents{toc}{\vspace{0.3cm}} % Ajustez la valeur pour plus ou moins d'espace
+
+% Ajoutez une entrée pour "Table des Matières" dans la table des matières elle-même
+\addcontentsline{toc}{chapter}{\bfseries\MakeUppercase{Table des Matières}}
+
+\tableofcontents
+\cleardoublepage
+\listoftables
+\listoffigures
+\listofacro
+
+\include{content/dedicace}
+\include{content/remerciements}
+\endgroup
+\include{content/avant_propos}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Document principal
+%%
+%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{fancy}
+\doublespacing
+\maincontent
+\include{content/introduction}
+\include{content/chapitre1}
+\include{content/chapitre2}
+\include{content/chapitre3}
+\include{content/chapitre4}
+\include{content/chapitre5}
+\include{content/conclusion}
+
+%%%%%%%%$%%%%
+%%
+%% Références
+%%
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Le fichier BibTeX contenant les références
+%% doit se trouver dans le répertoire "assets/references".
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begingroup
+\singlespacing
+
+\bibliography{assets/references}
+
+\endgroup
+%%%%%%%%%%%
+%%
+%% Annexes
+%%
+%%%%%%%%%%%
+%\appendix
+
+\include{content/annexe_a}
+
+\end{document}

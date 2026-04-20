@@ -1,0 +1,73 @@
+\chapter{MISE EN CONTEXTE}
+\label{chap:chap_1}
+%\section{introduction}
+\listoftodos[Notes]%ceci permet d'afficher la liste dee commentaires du professeur
+
+\section*{Introduction}
+Les progrès récents ...
+
+\section{Contexte de la recherche}
+
+
+\section{Problématique}
+L'introduction  des...
+La problématique centrale de ce projet de recherche réside...
+
+
+Pour enlever une information sur l'image, on peut utiliser les paramètres trim et clip. La commande est :\\
+
+% includegraphics[trim={A cm B cm D cm E cm},clip, width=\linewidth]\\
+avec\\
+trim=A:left B:bottom C:right D:top\\
+
+Voici un exemple de figure côte à côte:
+
+\begin{figure}[!htbp]
+\centering
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{usine.JPG}
+        \caption{Example of the hybrid mobile robot with UR5 serial manipulator for the use case study. Source of 3D files, CC-BY\cite{vanel}}\label{fig:robotUR5}
+    \end{minipage}
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{usine.JPG}
+        \caption{3D simulation of an electrical substation on Gazebo in ROS. Source of 3D files, CC-BY \cite{vanel}.}\label{fig:3DSousStation}
+    \end{minipage}
+\end{figure}
+
+\section{Objectifs}
+L'objectif principal de ce projet de recherche est de déterminer...
+
+\subsection{Conseils de rédaction}
+
+\subsubsection{Utilisation des accronymes}
+Pour les définitions des acronymes, on doit les ajouter manuellement, par exemple pour \ac{BMS}.
+Le même principe s'applique pour \ac{TSP}.
+À chaque fois que l'acronyme est utilisé, on doit prendre la commande \ac{TSP}, après l'avoir défini à la première référence.
+
+\subsubsection{Notes de bas de page}
+
+Vous pouvez utiliser les notes de bas de page pour inclure un lien\footnote{\url{https://www.uqac.ca}} en rapport avec votre texte, ou pour donner plus de précisions\footnote{Cette note de bas de page propose plus d'informations}.
+
+\subsubsection{Exemple de listes}
+\label{subsec:subsec_list}
+
+\begin{enumerate}
+  \item {\bf premier point (gras) ;}
+  \item {\em second point (italique) ;}
+  \item {\Large troisième point (gros) ;}
+      \begin{enumerate}
+          \item {\small premier sous-point en petit}
+          \item {\tiny second sous-point (petit)}
+          \item {\Huge troisième sous-point (très gros)}
+      \end{enumerate}
+  \item[$\bullet$] {\sf point avec une puce (sans serif)}
+  \item[$\circ$] {\sc point avec un autre style de puce (petites lettres capitales)}
+\end{enumerate}
+
+\section*{Conclusion}
+\label{sec:sec_examples_chap_1}
+Ce projet de recherche vise à résoudre...
+
+\newpage

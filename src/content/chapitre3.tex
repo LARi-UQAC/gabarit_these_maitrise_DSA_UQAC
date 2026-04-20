@@ -1,0 +1,77 @@
+\chapter{Méthodologie}
+\label{chap:chap_3}
+\section*{Introduction}
+Sujet amené
+Sujet posé
+Sujet divisé
+
+
+\section{Description et formulation du problème}
+Présenter les sous-sections...
+\subsection {Architecture proposée}
+Dans ce projet, ... La figure \ref{usine} donne un aperçu de l’installation dans l’environnement RoboDK, montrant la batterie dans l’espace de travail.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\linewidth]{usine.JPG}
+    \caption{Usine de démontage d’une batterie NISSAN Leaf \cite{vanel}}
+    \label{usine}
+\end{figure} 
+
+
+
+
+\subsection{Une autre sous-section}
+
+\section{Une section}
+Présenter les sous-sections... 
+
+
+
+\subsection{Objectifs et contraintes}
+
+L'équation (\ref{eq:time_matrix}) décrit...
+
+\begin{equation}
+T = \begin{pmatrix}
+t_{11} & t_{12} & \cdots & t_{1n} \\
+t_{21} & t_{22} & \cdots & t_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+t_{n1} & t_{n2} & \cdots & t_{nn}
+\end{pmatrix}
+\label{eq:time_matrix}
+\end{equation}
+
+L'algorithme \ref{alg:generate_population1} présente...
+
+\begin{minipage}{0.98\linewidth} % Réduire la largeur du cadre à 80% de la largeur de la page
+\begin{algorithm}[H]
+\caption{Algorithme de génération de la population initiale}
+\label{alg:generate_population1}
+    \KwEntree{Nombre de population, Nombre de tâches, Matrice de précédence }
+  \KwSortie{Population initiale}
+  Initialiser une liste vide pour stocker les chemins constituant la population \;
+   \While{la taille de la population < au Nombre de population}{
+    Générer un chemin aléatoire en respectant les contraintes de précédence \;
+    \eIf{le chemin généré est unique et respecte les contraintes}{
+     Ajouter le chemin à la population \;
+     Continuer \;
+     }{
+     Ignorer le chemin \;
+    }
+   }
+\end{algorithm}
+\end{minipage}
+\newline 
+Pour améliorer la performance de l'algorithme...
+
+
+
+\subsection{Mise en œuvre de l'algorithme génétique} 
+
+\section{Conclusion}
+Rappel des objectifs du chapitre
+Indiquer l'atteinte des objectifs
+Présenter le prochain chapitre
+

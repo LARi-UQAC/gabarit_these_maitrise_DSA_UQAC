@@ -1,0 +1,7 @@
+# Environment / secrets — never commit
+out
+slides/out
+
+# Logs
+logs
+*.log
