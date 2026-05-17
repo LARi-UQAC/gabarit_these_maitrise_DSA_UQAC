@@ -1,12 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(Get-ChildItem -Path \"C:\\\\Martin Otis\\\\OutilsLogiciels\" -Force)",
+      "Bash(Get-ChildItem -Path \"\\\\OutilsLogiciels\" -Force)",
       "Bash(Select-Object -Property Name, PSIsContainer)",
       "Bash(Format-Table)",
-      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\m3otis\\\\.claude\" -Force -ErrorAction SilentlyContinue)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\.claude\" -Force -ErrorAction SilentlyContinue)",
       "Bash(Select-Object FullName, PSIsContainer)",
-      "Bash(New-Item -ItemType Directory -Force -Path \"C:\\\\Martin Otis\\\\OutilsLogiciels\\\\.claude\\\\agents\\\\reviewer-response\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"\\\\OutilsLogiciels\\\\.claude\\\\agents\\\\reviewer-response\")",
       "Bash(Out-Null)",
       "Bash(Write-Output \"dir created\")"
     ]
