@@ -579,6 +579,36 @@ Record in Section N of the plan.
 
 ---
 
+### Step 14.5 — ScholarEval scoring
+
+Using all findings from Steps 1–14, score each ScholarEval dimension (load `.claude/skills/scholar-evaluation/references/evaluation_framework.md` for rubrics). Assign a score 1–5 per dimension with 2 strengths and 2 areas for improvement drawn from specific audit findings and chapter references.
+
+| Dimension | Informed by | Weight |
+|---|---|---|
+| D1 — Problem Formulation | Steps 3, 6 (hypothesis flow, objectives section, SMART objectives) | 15% |
+| D2 — Literature Review | Step 6 (literature review audit, comparison table, thematic clusters, coverage gaps) | 15% |
+| D3 — Methodology | Step 7 (methodology audit, reproducibility, hypothesis linkage) | 20% |
+| D4 — Data Collection | Steps 7, 8 (experimental setup, dataset, sample description) | 10% |
+| D5 — Analysis & Interpretation | Steps 8, 11 (results audit, abstract consistency, hypothesis validation linkage) | 15% |
+| D6 — Results & Findings | Steps 8, 9 (result presentation quality, figure and table audit) | 10% |
+| D7 — Scholarly Writing | Steps 4, 12 (chapter structure, sujet amené/posé/divisé, LLM risk score) | 10% |
+| D8 — Citations & References | Step 5 (reference audit, confidence levels, temporal distribution, self-citation) | 5% |
+
+Compute: `D1*0.15 + D2*0.15 + D3*0.20 + D4*0.10 + D5*0.15 + D6*0.10 + D7*0.10 + D8*0.05`
+
+Map overall score to quality level and thesis maturity verdict:
+
+- 4.5–5.0: Exceptional — ready for defence
+- 4.0–4.4: Strong — minor revisions before defence
+- 3.5–3.9: Good — major revisions required, promising work
+- 3.0–3.4: Acceptable — significant revisions, re-evaluation needed
+- 2.0–2.9: Weak — fundamental issues, major rework required
+- < 2.0: Poor — not defendable without complete revision
+
+State thesis maturity explicitly: **Major revision / Minor revision / Ready for defence**
+
+Record in Section P of the plan.
+
 ### Step 15 — Write improvement plan
 
 Save as `<main_basename>_thesis_audit_plan.md` in the same directory as `main.tex`.
@@ -722,6 +752,25 @@ BibTeX entries to add to the .bib file:
 
 ## Section O — Missing Chapters or Sections
 [List each missing required chapter/section with a one-paragraph recommendation]
+
+## Section P — ScholarEval Score
+
+| Dimension | Score /5 | Weight | Contribution |
+|---|---|---|---|
+| D1 — Problem Formulation | N.N | 15% | 0.0NN |
+| D2 — Literature Review | N.N | 15% | 0.0NN |
+| D3 — Methodology | N.N | 20% | 0.0NN |
+| D4 — Data Collection | N.N | 10% | 0.0NN |
+| D5 — Analysis & Interpretation | N.N | 15% | 0.0NN |
+| D6 — Results & Findings | N.N | 10% | 0.0NN |
+| D7 — Scholarly Writing | N.N | 10% | 0.0NN |
+| D8 — Citations & References | N.N | 5% | 0.0NN |
+| **Weighted total** | **N.NN / 5.00** | 100% | |
+| **Quality level** | **[Exceptional / Strong / Good / Acceptable / Weak / Poor]** | | |
+
+**Thesis maturity verdict:** [Major revision / Minor revision / Ready for defence]
+**Top 3 strengths:** [specific points grounded in audit findings, with chapter references]
+**Top 3 priority improvements:** [ranked by impact on weighted score]
 
 ---
 *Edit this plan, mark unwanted items [SKIP], then ask Claude:*

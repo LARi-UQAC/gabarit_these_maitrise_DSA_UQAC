@@ -450,6 +450,34 @@ Apply the standard arbitration rules:
 
 Merge accepted suggestions into the appropriate plan sections before saving.
 
+### Step 8.5 — ScholarEval scoring
+
+Using all findings from Steps 1–8, score each ScholarEval dimension (load `.claude/skills/scholar-evaluation/references/evaluation_framework.md` for rubrics). Assign a score 1–5 and list 2 strengths and 2 areas for improvement per dimension, grounded in specific audit findings.
+
+| Dimension | Informed by | Weight |
+|---|---|---|
+| D1 — Problem Formulation | Steps 1, 1.2 (scientific method, presentation style, hypothesis presence) | 15% |
+| D2 — Literature Review | Step 1b (literature review audit, Section N) | 15% |
+| D3 — Methodology | Step 4 (methodology audit, Section B flags) | 20% |
+| D4 — Data Collection | Steps 3, 4 (state-of-the-art, experimental setup) | 10% |
+| D5 — Analysis & Interpretation | Step 5 (results audit, statistics, baseline comparison) | 15% |
+| D6 — Results & Findings | Steps 5, 5.5 (results presentation, abstract consistency) | 10% |
+| D7 — Scholarly Writing | Steps 4.7, 7.5 (section flow, LLM risk score) | 10% |
+| D8 — Citations & References | Step 2 (reference audit, confidence levels, temporal distribution) | 5% |
+
+Compute: `D1*0.15 + D2*0.15 + D3*0.20 + D4*0.10 + D5*0.15 + D6*0.10 + D7*0.10 + D8*0.05`
+
+Map overall score to quality level and publication readiness verdict:
+
+- 4.5–5.0: Exceptional — ready for top-tier publication
+- 4.0–4.4: Strong — publication-ready with minor revisions
+- 3.5–3.9: Good — major revisions required, promising work
+- 3.0–3.4: Acceptable — significant revisions needed
+- 2.0–2.9: Weak — fundamental issues, major rework required
+- < 2.0: Poor — not suitable for submission without complete revision
+
+Record in Section O of the plan.
+
 ### Step 9 — Write improvement plan
 
 Save as `<source_basename>_paper_audit_plan.md` alongside the source file.
@@ -594,6 +622,25 @@ Introductory sentences: [2 sentences to place immediately before the table]
 
 ### N-Assessment — Coverage quality
 [2–3 sentences: overall coverage assessment, thematic gaps, balance of recent vs. foundational work]
+
+## Section O — ScholarEval Score
+
+| Dimension | Score /5 | Weight | Contribution |
+|---|---|---|---|
+| D1 — Problem Formulation | N.N | 15% | 0.0NN |
+| D2 — Literature Review | N.N | 15% | 0.0NN |
+| D3 — Methodology | N.N | 20% | 0.0NN |
+| D4 — Data Collection | N.N | 10% | 0.0NN |
+| D5 — Analysis & Interpretation | N.N | 15% | 0.0NN |
+| D6 — Results & Findings | N.N | 10% | 0.0NN |
+| D7 — Scholarly Writing | N.N | 10% | 0.0NN |
+| D8 — Citations & References | N.N | 5% | 0.0NN |
+| **Weighted total** | **N.NN / 5.00** | 100% | |
+| **Quality level** | **[Exceptional / Strong / Good / Acceptable / Weak / Poor]** | | |
+
+**Publication readiness:** [Ready for top-tier / Ready with minor revisions / Major revisions required / Not ready]
+**Top 3 strengths:** [specific points grounded in audit findings]
+**Top 3 priority improvements:** [ranked by impact on weighted score]
 
 ---
 *Edit this plan, mark unwanted items [SKIP], then ask Claude:*

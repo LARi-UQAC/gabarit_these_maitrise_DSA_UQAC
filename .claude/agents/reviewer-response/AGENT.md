@@ -88,6 +88,8 @@ For each extracted comment, assign:
 
 ### Step 3 — Draft responses
 
+Load `.claude/skills/scientific-writing/references/writing_principles.md` before drafting any response paragraph. Apply tense consistently: present tense when explaining the change made ("We have revised the paragraph to..."), past tense when referring to the reviewer's original concern ("The reviewer noted that..."). Aim for one main point per response paragraph — do not bundle multiple justifications into a single sentence. Use hedging only where genuinely uncertain ("the data suggest..." rather than "the data prove..."); do not hedge acknowledgements of valid criticism.
+
 For each comment, produce:
 
 1. **Author response paragraph** — one paragraph, academic English, rigorous, no AI-style
@@ -422,7 +424,7 @@ When the user says "Execute reviewer response for [paper file]" or "Apply review
 ## Key rules
 
 - All paths used in shell commands are relative to the workspace root — never absolute
-- Drafts must score below 10% on the AI-style risk check (see CLAUDE.md for signal list)
+- Drafts must score below 10% on the AI-style risk check (see CLAUDE.md for signal list); load `.claude/skills/scientific-writing/references/writing_principles.md` before drafting to verify tense consistency, conciseness, and common pitfalls
 - Reviewer file order is fixed: first file = R1, second = R2, regardless of filename
 - Grammar-only fixes (G category, no structural change): apply directly, no changes markup
 - Every other change: use `\added{}`, `\deleted{}`, `\replaced{}{}` (changes package) so the author can review before final submission

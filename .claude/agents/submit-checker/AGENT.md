@@ -117,6 +117,23 @@ Extract the keywords (from `\begin{IEEEkeywords}`, `\keywords{}`, or similar). C
 - No keyword duplicates the paper title word-for-word — flag `[KEYWORD DUPLICATES TITLE]`.
 - Keywords are separated by semicolons (IEEE/Elsevier) or commas (MDPI) per venue style — flag `[KEYWORD SEPARATOR WRONG]` if mismatched.
 
+### Step 8.5 — ScholarEval publication readiness score
+
+Evaluate four dimensions relevant to journal submission readiness using the ScholarEval framework (load `.claude/skills/scholar-evaluation/references/evaluation_framework.md` for rubrics). This is a lightweight pre-submission assessment derived from the structural checks already performed — not a full quality audit. For a complete 8-dimension evaluation, the user should run `/auditpaper` before this step.
+
+| Dimension | Informed by | Weight |
+|---|---|---|
+| D1 — Problem Formulation | Step 3 (required sections: Introduction, research problem stated) | 25% |
+| D7 — Scholarly Writing | Steps 2, 3, 7 (page count, abstract quality, section completeness) | 25% |
+| D6 — Results & Findings | Steps 3, 5 (Results section present, figure and table count and quality) | 25% |
+| D8 — Citations & References | Steps 4, 5 (reference style compliance, figure resolution) | 25% |
+
+For each dimension: assign a score 1–5 based on findings from the previous steps. Write one sentence of evidence per score.
+
+Compute simple average: `(D1 + D7 + D6 + D8) / 4`
+
+Map to quality level using standard ScholarEval thresholds. Record in the checklist under `## ScholarEval Readiness Score`.
+
 ### Step 9 — Write submission checklist
 
 Save as `<basename>_submit_<journal-slug>.md` alongside the source file.
@@ -134,6 +151,7 @@ Publisher: [publisher]  SJR: [value] [Q1/Q2/Q3/Q4]  CiteScore: [value]
 - Keywords: N found — [PASS / TOO FEW]
 - Missing required sections: [list or NONE]
 - Anonymization: [N/A / PASS / INCOMPLETE]
+- ScholarEval readiness score: N.NN / 5.00 — [quality level]
 
 ## Detailed Checks
 
@@ -153,6 +171,18 @@ Publisher: [publisher]  SJR: [value] [Q1/Q2/Q3/Q4]  CiteScore: [value]
 - [x] Abstract: 187 words (within 150–250 range)
 - [ ] Keyword separator: commas found, semicolons expected — [KEYWORD SEPARATOR WRONG]
 - ...
+
+## ScholarEval Readiness Score (lightweight)
+
+| Dimension | Score /5 | Evidence |
+|---|---|---|
+| D1 — Problem Formulation | N.N | [from section structure check] |
+| D7 — Scholarly Writing | N.N | [abstract quality, page count, section flow] |
+| D6 — Results & Findings | N.N | [figures, tables, metrics present] |
+| D8 — Citations & References | N.N | [style compliance, count] |
+| **Average** | **N.NN / 5.00** | **[Exceptional / Strong / Good / Acceptable / Weak / Poor]** |
+
+*For a complete 8-dimension ScholarEval audit, run `/auditpaper` before submission.*
 
 ## Actions Required Before Submission
 [Numbered list of all FAIL items with one-line fix instruction]

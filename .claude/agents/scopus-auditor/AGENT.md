@@ -167,6 +167,34 @@ Generate a LaTeX `\begin{table}` block following CLAUDE.md rules:
 - Include a suggested insertion location in the document
 - Write 2 sentences introducing the table (to be placed just before it in the `.tex` file)
 
+### Step 5c — ScholarEval assessment
+
+Evaluate the review text using the ScholarEval framework. Load `references/evaluation_framework.md` from `.claude/skills/scholar-evaluation/` for the detailed rubrics. Score the four dimensions applicable to a literature review audit using the 5-point scale:
+
+| Dimension | Weight | What to assess |
+|---|---|---|
+| D1 — Problem Formulation | 10% | Clarity of objectives/hypotheses, significance, novelty of the stated research gap |
+| D2 — Literature Review | 40% | Comprehensiveness, synthesis vs. summary, gap identification, currency and authority of sources |
+| D7 — Scholarly Writing | 20% | Clarity, organization, academic tone, grammar, transitions |
+| D8 — Citations & References | 30% | Citation completeness, source quality, approved publishers, accuracy, diversity |
+
+For each dimension:
+- State 2 specific strengths drawn from the review text
+- State 2 specific areas for improvement with evidence
+- Assign a score 1–5 following the rubric in `evaluation_framework.md`
+
+Compute weighted average: `D1*0.10 + D2*0.40 + D7*0.20 + D8*0.30`
+
+Map overall score to quality level:
+- 4.5–5.0: Exceptional — review-quality literature section for top-tier venue
+- 4.0–4.4: Strong — minor revisions needed
+- 3.5–3.9: Good — major revisions needed, promising coverage
+- 3.0–3.4: Acceptable — significant work required
+- 2.0–2.9: Weak — fundamental issues
+- < 2.0: Poor — requires complete revision
+
+Record findings in Section E-ScholarEval of the plan.
+
 ### Step 6b — Dual cross-review
 
 After the draft plan text is fully assembled, call both reviewers in sequence.
@@ -261,6 +289,20 @@ Introductory sentences: [2 sentences to add just before the table in the .tex fi
 [2–3 paragraph academic critique: contribution gap, argumentation strength,
  methodological soundness, alignment with field standards.
  Written in the voice of a senior IEEE/Elsevier reviewer. Rigorous and self-critical.]
+
+### E-ScholarEval — Quality Score (ScholarEval framework)
+
+| Dimension | Score /5 | Weight | Contribution |
+|---|---|---|---|
+| D1 — Problem Formulation | N.N | 10% | 0.0N |
+| D2 — Literature Review | N.N | 40% | 0.NN |
+| D7 — Scholarly Writing | N.N | 20% | 0.NN |
+| D8 — Citations & References | N.N | 30% | 0.NN |
+| **Weighted total** | **N.NN / 5.00** | 100% | |
+| **Quality level** | **[Exceptional / Strong / Good / Acceptable / Weak / Poor]** | | |
+
+**Strengths:** [2–3 specific points across dimensions with evidence from the review text]
+**Priority improvements:** [2–3 items ranked by impact on the weighted score]
 
 ## Section F — Academic Novelty Checklist
 
